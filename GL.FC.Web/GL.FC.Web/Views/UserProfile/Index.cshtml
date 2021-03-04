@@ -1,0 +1,189 @@
+﻿@model GL.FC.Shared.UserProfileModel;
+@{
+    ViewData["Title"] = "Profile view";
+}
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>
+            User Profile
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+            <li class="active">User profile</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+
+        <div class="row">
+            <div class="col-md-4">
+                <!-- Profile Image -->
+                <div class="box box-primary">
+                    <div class="box-body box-profile">
+                        <img class="profile-user-img img-responsive img-circle" src="~/static/dist/img/user4-128x128.jpg" alt="User profile picture">
+
+                        <h3 class="profile-username text-center">@Model.Name</h3>
+
+                        <p class="text-muted text-center">Member since @Model.JoiningDate.ToString("dd/MM/yyyy")</p>
+
+                        <ul class="list-group list-group-unbordered">
+                            <li class="list-group-item">
+                                <b>Gender</b> <a class="pull-right">@Model.Gender</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Weight</b> <a class="pull-right">70 Kg</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Height</b> <a class="pull-right">120 cm</a>
+                            </li>
+                        </ul>
+
+                        <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+                <!-- About Me Box -->
+                <div class="box box-primary">
+
+                    <!-- /.box-header -->
+                    <div class="box-body">
+                        <strong><i class="fa fa-pencil margin-r-5"></i> About me</strong>
+
+                        <p class="text-muted">
+                            B.S. in Computer Science from the University of Tennessee at Knoxville
+                        </p>
+
+                        <hr>
+
+                        <strong><i class="fa fa-heartbeat margin-r-5"></i> Why I want to get in shape</strong>
+
+                        <p class="text-muted">Dummy</p>
+
+                        <hr>
+
+                        <strong><i class="fa fa-user-plus margin-r-5"></i> My Inspiration</strong>
+
+                        <p>No one</p>
+                        <hr />
+
+                        <strong><i class="fa fa-users margin-r-5"></i> Friends</strong>
+
+                        <p>
+
+                        </p>
+
+                        <hr>
+
+
+                    </div>
+                    <!-- /.box-body -->
+                </div>
+                <!-- /.box -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-8">
+                <div class="nav-tabs-custom">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#timeline" data-toggle="tab">Timeline</a></li>
+                        <li><a href="#settings" data-toggle="tab">Health</a></li>
+                    </ul>
+                    <div class="tab-content">
+
+                        <div class="active tab-pane" id="timeline">
+                            <!-- The timeline -->
+                            <ul class="timeline timeline-inverse">
+                                <!-- timeline time label -->
+                                <li class="time-label">
+                                    <span class="bg-red">
+                                        10 Feb. 2014
+                                    </span>
+                                </li>
+                                <!-- /.timeline-label -->
+                                <!-- timeline item -->
+                                <li>
+                                    <i class="fa fa-child bg-blue"></i>
+
+                                    <div class="timeline-item">
+                                        <span class="time"><i class="fa fa-watch-fitness"></i> 12:05</span>
+
+                                        <h3 class="timeline-header"><a href="#">You entered</a> your weight</h3>
+
+                                        <div class="timeline-body">
+                                            <b>60 Kg</b>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- END timeline item -->
+                                <!-- timeline time label -->
+                                <li class="time-label">
+                                    <span class="bg-red">
+                                        10 Feb. 2014
+                                    </span>
+                                </li>
+                                <!-- /.timeline-label -->
+                                <!-- timeline item -->
+                                <li>
+                                    <i class="fa fa-child bg-blue"></i>
+
+                                    <div class="timeline-item">
+                                        <span class="time"><i class="fa fa-watch-fitness"></i> 12:05</span>
+
+                                        <h3 class="timeline-header"><a href="#">You entered</a> your Height</h3>
+
+                                        <div class="timeline-body">
+                                            <b>140 cm</b>
+                                        </div>
+                                    </div>
+                                </li>
+                                <!-- END timeline item -->
+
+                                <li>
+                                    <i class="fa fa-clock-o bg-gray"></i>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.tab-pane -->
+
+                        <div class="tab-pane" id="settings">
+                            <form class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="inputName" class="col-sm-2 control-label">Weight</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputName" placeholder="Eg: 70kg">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputEmail" class="col-sm-2 control-label">Height</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" id="inputEmail" placeholder="Eg: 170cm">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-sm-offset-2 col-sm-10">
+                                        <button type="submit" class="btn btn-danger">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.tab-pane -->
+                    </div>
+                    <!-- /.tab-content -->
+                </div>
+                <!-- /.nav-tabs-custom -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->

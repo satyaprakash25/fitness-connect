@@ -1,0 +1,9 @@
+D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\bin\Debug\netcoreapp3.1\GL.FC.Data.deps.json
+D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\bin\Debug\netcoreapp3.1\GL.FC.Data.dll
+D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\bin\Debug\netcoreapp3.1\GL.FC.Data.pdb
+D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.AssemblyInfoInputs.cache
+D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.AssemblyInfo.cs
+D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.csproj.CoreCompileInputs.cache
+D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.dll
+D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.pdb
+D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.csprojAssemblyReference.cache

@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20210304034306_AddingImagePathForUser.cs" />
+    <Compile Remove="Migrations\20210304034306_AddingImagePathForUser.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SqlScripts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.78" />
+    <PackageReference Include="IdentityServer4.EntityFramework.Storage" Version="4.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.12" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GL.FC.Data\GL.FC.Data.csproj" />
+    <ProjectReference Include="..\GL.FC.Shared\GL.FC.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

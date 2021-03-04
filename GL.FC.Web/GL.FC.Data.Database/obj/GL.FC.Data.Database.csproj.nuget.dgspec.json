@@ -1,0 +1,201 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data.Database\\GL.FC.Data.Database.csproj": {}
+  },
+  "projects": {
+    "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data.Database\\GL.FC.Data.Database.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data.Database\\GL.FC.Data.Database.csproj",
+        "projectName": "GL.FC.Data.Database",
+        "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data.Database\\GL.FC.Data.Database.csproj",
+        "packagesPath": "C:\\Users\\satyam.prakash\\.nuget\\packages\\",
+        "outputPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data.Database\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\satyam.prakash\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {
+              "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data\\GL.FC.Data.csproj": {
+                "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data\\GL.FC.Data.csproj"
+              },
+              "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Shared\\GL.FC.Shared.csproj": {
+                "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Shared\\GL.FC.Shared.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "IdentityServer4.EntityFramework.Storage": {
+              "target": "Package",
+              "version": "[4.1.1, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data\\GL.FC.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data\\GL.FC.Data.csproj",
+        "projectName": "GL.FC.Data",
+        "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data\\GL.FC.Data.csproj",
+        "packagesPath": "C:\\Users\\satyam.prakash\\.nuget\\packages\\",
+        "outputPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\satyam.prakash\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Shared\\GL.FC.Shared.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Shared\\GL.FC.Shared.csproj",
+        "projectName": "GL.FC.Shared",
+        "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Shared\\GL.FC.Shared.csproj",
+        "packagesPath": "C:\\Users\\satyam.prakash\\.nuget\\packages\\",
+        "outputPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Shared\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\satyam.prakash\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
