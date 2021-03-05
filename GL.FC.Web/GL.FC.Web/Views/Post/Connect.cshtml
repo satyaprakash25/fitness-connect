@@ -87,30 +87,100 @@
                                         </form>
                                     }
                                     <span class="username">
-                                        <a href="#" class="pull-right ">
+                                        <a href="#" class="pull-right">
                                             <span class="pull-right-container"><b class="label pull-right bg-@item.Category.BgColor">@item.Category.Title</b></span>
                                         </a>
                                     </span>
                                     <span class="description">Shared publicly - @item.CreationDate.Value.ToString("dd/MM/yyyy") </span>
                                 </div>
+                                @if (item.PostImages != null && item.PostImages.Count > 0)
+                                {
+                                    if (item.PostImages.Count > 1)
+                                    {
+                                        <div id="myCarousel_@item.Id" class="carousel slide" data-bs-ride="carousel">
+                                            <ol class="carousel-indicators">
+                                                @foreach (var slider in item.PostImages.Select((value, i) => new { i, value }))
+                                                {
+                                                    <li data-target="#myCarousel__@item.Id" data-slide-to="@slider.i" class=" @(slider.i==0?"active":"")"></li>
+                                                }
+                                            </ol>
+                                            <div class="carousel-inner">
+                                                @foreach (var slider in item.PostImages.Select((value, i) => new { i, value }))
+                                                {
+                                                    <div class="item @(slider.i==0?"active":"")">
+                                                        <img src="/Uploads/posts/@slider.value.ImagePath" class="d-block w-100" alt="...">
+                                                    </div>
+
+                                                }
+                                            </div>
+                                            <!-- Left and right controls -->
+                                            <a class="left carousel-control" href="#myCarousel_@item.Id" data-slide="prev">
+                                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                                <span class="sr-only">Previous</span>
+                                            </a>
+                                            <a class="right carousel-control" href="#myCarousel_@item.Id" data-slide="next">
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                                <span class="sr-only">Next</span>
+                                            </a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <img class="img-responsive pad" src="/uploads/posts/@item.PostImages.FirstOrDefault().ImagePath" alt="Photo">
+                                    }
+                                }
+
                                 <!-- /.user-block -->
                                 <p>
                                     @Html.Raw(item.Description)
                                 </p>
                                 <ul class="list-inline">
-                                    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
                                     <li>
-                                        <a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-                                    </li>
-                                    <li class="pull-right">
-                                        <a href="#" class="link-black text-sm">
-                                            <i class="fa fa-comments-o margin-r-5"></i> Comments
-                                            (5)
+                                        <a href="javascript:void" onclick="Like(@item.Id)" id="like-btn-@item.Id"
+                                           class="text-sm ">
+                                            <i class="fa fa-heart  margin-r-5 @( item.LikesList.Any(a=>a.LikedById == Convert.ToInt32(User.FindFirst("Id").Value))?"text-red":"text-grey")"
+                                               style="font-size:1.5em;text-shadow: 1px 1px 1px #ccc;"></i>
+                                            <span id="like-count-@item.Id">@item.LikesList.Count</span>  People liked
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href="javascript:void" onclick="OpenCommentPopup(@item.Id)" class="link-black text-sm">
+                                            <i class="fa fa-comments-o margin-r-5" style="font-size:1.5em;text-shadow: 1px 1px 1px #ccc;"></i>
+                                        </a>
+                                        <br />
+                                    </li>
                                 </ul>
+                                @if (item.CommentList.Count > 0)
+                                {
+                                    foreach (var comment in item.CommentList)
+                                    {
+                                        <div class="box-comments">
+                                            <div class="box-comment">
+                                                <!-- User image -->
+                                                <img class="img-circle img-sm" src="/@comment.CommentedBy.ImagePath" alt="User Image">
 
-                                <input class="form-control input-sm" type="text" placeholder="Type a comment">
+                                                <div class="comment-text">
+                                                    <span class="username">
+                                                        @comment.CommentedBy.Name
+                                                        <span class="text-muted pull-right">@comment.CreationDate.Value.ToString("dd-MM-yyyy hh:mm tt")</span>
+                                                    </span><!-- /.username -->
+                                                    @comment.Description
+                                                </div>
+                                                <!-- /.comment-text -->
+                                            </div>
+                                        </div>
+                                    }
+
+                                }
+
+                                <!-- /.box-comment -->
+                                <div id="comment-form-@item.Id" style="display:none;">
+                                    <form asp-action="Comment" asp-controller="Post" method="post">
+                                        <input type="hidden" value="@item.Id" name="postId" />
+                                        <input class="form-control" name="description" type="text" placeholder="Type a comment">
+                                        <button type="submit" class="btn bg-purple-gradient btn-sm" style="margin-top:14px"><i class="fa fa-pencil"></i> Publish</button>
+                                    </form>
+                                </div>
                             </div>
                             <!-- /.post -->
                         }
@@ -151,6 +221,29 @@
                 addRemoveLinks: true
             };
         })
+        function Like(postid) {
+            $("#like-btn-" + postid).find('i').toggleClass('text-red');
+            var jsonResult = {
+                postId: postid
+            }
+            $.ajax({
+                method: "POST",
+                data: jsonResult,
+                url: "/post/like", success: function (result) {
+                    $(this).find('i').toggleClass('fa-plus-circle fa-minus-circle');
 
+                    if (result == "add")
+                        $("#like-count-" + postid).text(parseInt($("#like-count-" + postid).text()) + 1);
+                    else
+                        $("#like-count-" + postid).text(parseInt($("#like-count-" + postid).text()) - 1);
+                }
+            });
+        }
+
+        function OpenCommentPopup(postId) {
+            $("#comment-form-" + postId).slideToggle("slow", function () {
+                // Animation complete.
+            });
+        }
     </script>
 }

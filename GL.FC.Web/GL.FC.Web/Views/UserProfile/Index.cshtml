@@ -1,4 +1,5 @@
-﻿@model GL.FC.Shared.UserProfileModel;
+﻿@using GL.FC.Shared;
+@model UserProfileModel;
 @{
     ViewData["Title"] = "Profile view";
 }
@@ -24,7 +25,9 @@
                 <!-- Profile Image -->
                 <div class="box box-primary">
                     <div class="box-body box-profile">
-                        <img class="profile-user-img img-responsive img-circle" src="~/static/dist/img/user4-128x128.jpg" alt="User profile picture">
+                        @{ UserHealthModel currentHealthInfo = Model.UserHealthDetails.OrderByDescending(a => a.CreationDate).Take(1).FirstOrDefault() ?? new UserHealthModel(); }
+
+                        <img class="profile-user-img img-responsive img-circle" src="/@Model.ImagePath" alt="User profile picture">
 
                         <h3 class="profile-username text-center">@Model.Name</h3>
 
@@ -32,13 +35,22 @@
 
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
-                                <b>Gender</b> <a class="pull-right">@Model.Gender</a>
+                                <b>Gender </b> <a class="pull-right">@Model.Gender</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Weight</b> <a class="pull-right">70 Kg</a>
+                                <b>Age</b> <a class="pull-right">@Model.Age</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Height</b> <a class="pull-right">120 cm</a>
+                                <b>Weight</b> <a class="pull-right">@currentHealthInfo.Weight lbs</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Height</b> <a class="pull-right">@currentHealthInfo.Height cms</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Abdomen</b> <a class="pull-right">@currentHealthInfo.Abdomen cms</a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Neck</b> <a class="pull-right">@currentHealthInfo.Neck inches</a>
                             </li>
                         </ul>
 
@@ -90,58 +102,51 @@
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#timeline" data-toggle="tab">Timeline</a></li>
-                        <li><a href="#settings" data-toggle="tab">Health</a></li>
+                        <!--TO-DO need better name suggestion for this one-->
+                        <li><a href="#settings" data-toggle="tab">Set your current health</a></li>
                     </ul>
                     <div class="tab-content">
 
                         <div class="active tab-pane" id="timeline">
                             <!-- The timeline -->
-                            <ul class="timeline timeline-inverse">
-                                <!-- timeline time label -->
-                                <li class="time-label">
-                                    <span class="bg-red">
-                                        10 Feb. 2014
-                                    </span>
-                                </li>
-                                <!-- /.timeline-label -->
-                                <!-- timeline item -->
-                                <li>
-                                    <i class="fa fa-child bg-blue"></i>
+                            <ul class="timeline">
+                                @foreach (var item in Model.UserHealthDetails.OrderByDescending(a => a.CreationDate).ToList())
+                                {
+                                    <!-- timeline time label -->
+                                    <li class="time-label">
+                                        <span class="bg-purple">
+                                            @item.CreationDate.Value.ToString("dd-MMM-yyyy")
+                                        </span>
+                                    </li>
+                                    <!-- /.timeline-label -->
+                                    <!-- timeline item -->
+                                    <li>
+                                        <i class="fa fa-child bg-light-blue-gradient text-warning"></i>
+                                        <div class="timeline-item">
+                                            <span class="time"><i class="fa fa-watch-fitness"></i> @item.CreationDate.Value.ToString("hh:mm tt")</span>
+                                            <h3 class="timeline-header"><a href="#">You have entered</a></h3>
+                                            <div class="timeline-body">
+                                                <div class="row">
+                                                    <div class="col-lg-3">
+                                                        <b>Weight: </b>@item.Weight Pound
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <b>Height: </b> @item.Height Inch
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <b>Abdomen: </b>@item.Abdomen cms
+                                                    </div>
+                                                    <div class="col-lg-3">
+                                                        <b>Neck: </b>@item.Neck Inches
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-watch-fitness"></i> 12:05</span>
-
-                                        <h3 class="timeline-header"><a href="#">You entered</a> your weight</h3>
-
-                                        <div class="timeline-body">
-                                            <b>60 Kg</b>
                                         </div>
-                                    </div>
-                                </li>
-                                <!-- END timeline item -->
-                                <!-- timeline time label -->
-                                <li class="time-label">
-                                    <span class="bg-red">
-                                        10 Feb. 2014
-                                    </span>
-                                </li>
-                                <!-- /.timeline-label -->
-                                <!-- timeline item -->
-                                <li>
-                                    <i class="fa fa-child bg-blue"></i>
+                                    </li>
+                                    <!-- END timeline item -->
 
-                                    <div class="timeline-item">
-                                        <span class="time"><i class="fa fa-watch-fitness"></i> 12:05</span>
-
-                                        <h3 class="timeline-header"><a href="#">You entered</a> your Height</h3>
-
-                                        <div class="timeline-body">
-                                            <b>140 cm</b>
-                                        </div>
-                                    </div>
-                                </li>
-                                <!-- END timeline item -->
-
+                                }
                                 <li>
                                     <i class="fa fa-clock-o bg-gray"></i>
                                 </li>
@@ -150,19 +155,34 @@
                         <!-- /.tab-pane -->
 
                         <div class="tab-pane" id="settings">
-                            <form class="form-horizontal">
+                            <form asp-action="SaveUserHealthInformation" asp-controller="home" method="post" class="form-horizontal">
                                 <div class="form-group">
-                                    <label for="inputName" class="col-sm-2 control-label">Weight</label>
+                                    <label class="col-sm-2 control-label">Weight</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputName" placeholder="Eg: 70kg">
+                                        <input type="text" name="Weight" class="form-control" placeholder="Eg: 70 pound">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="inputEmail" class="col-sm-2 control-label">Height</label>
+                                    <label class="col-sm-2 control-label">Height</label>
 
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputEmail" placeholder="Eg: 170cm">
+                                        <input type="text" name="Height" class="form-control" placeholder="Eg: 170cm">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Abdomen</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" name="Abdomen" class="form-control" placeholder="Eg: 70kg">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Neck</label>
+
+                                    <div class="col-sm-10">
+                                        <input type="text" name="Neck" class="form-control" placeholder="Eg: 170cm">
                                     </div>
                                 </div>
 

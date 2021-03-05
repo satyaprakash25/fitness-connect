@@ -13,7 +13,6 @@ namespace GL.FC.Services
         IList<T> GetAll(string resolvedPropertyNames);
         T GetById(long Id, string resolvedPropertyNames);
         bool Remove(long id);
-        bool Remove(params T[] items);
         bool Update(params T[] items);
     }
 }

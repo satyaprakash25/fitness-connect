@@ -4,6 +4,7 @@ using GL.FC.Web.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Diagnostics;
 using System.Security.Claims;
 
@@ -14,11 +15,14 @@ namespace GL.FC.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IUserProfileService _userProfileService;
+        private readonly IUserHealthService _userHealthService;
 
-        public HomeController(ILogger<HomeController> logger, IUserProfileService userProfileService)
+        public HomeController(ILogger<HomeController> logger, IUserProfileService userProfileService,
+            IUserHealthService userHealthService)
         {
             _logger = logger;
             _userProfileService = userProfileService;
+            _userHealthService = userHealthService;
         }
 
         public IActionResult Index()
@@ -28,6 +32,18 @@ namespace GL.FC.Web.Controllers
             UserProfileModel user = _userProfileService.GetUserByEmail(loggedInUserEmail);
             return View(user);
 
+        }
+
+        [HttpPost]
+        public IActionResult SaveUserHealthInformation(UserHealthModel userHealthModel)
+        {
+            userHealthModel.UserId = Convert.ToInt32(User.FindFirst("Id").Value);
+
+            userHealthModel.CreationDate = DateTime.Now;
+            userHealthModel.ModificationDate = DateTime.Now;
+
+            _userHealthService.Add(userHealthModel);
+            return RedirectToAction("index", "home");
         }
 
         [HttpPost]
@@ -41,7 +57,7 @@ namespace GL.FC.Web.Controllers
             return View();
         }
 
-        
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

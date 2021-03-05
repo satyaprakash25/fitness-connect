@@ -28,5 +28,22 @@ namespace GL.FC.Shared
             set { postImages = value; }
         }
 
+        private IList<LikesModel> likesList;
+
+        public IList<LikesModel> LikesList
+        {
+            get { return likesList ?? new List<LikesModel>(); }
+            set { likesList = value; }
+        }
+
+        private IList<CommentModel> commentList;
+
+        public IList<CommentModel> CommentList
+        {
+            get { return commentList ?? new List<CommentModel>(); }
+            set { commentList = value; }
+        }
+
+
     }
 }

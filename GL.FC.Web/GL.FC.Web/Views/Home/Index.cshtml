@@ -1,26 +1,28 @@
-﻿@model GL.FC.Shared.UserProfileModel;
+﻿@using GL.FC.Shared;
+@model UserProfileModel;
 
 @{
     ViewData["Title"] = "Home Page";
 }
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link href="~/static/dist/css/dashboardform.css" rel="stylesheet" />
-
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     @if (Model.UserHealthDetails.Count > 0)
     {
         <!-- Main content -->
         <section class="content">
+            @{ UserHealthModel currentHealthInfo = Model.UserHealthDetails.OrderByDescending(a => a.CreationDate).Take(1).FirstOrDefault(); }
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>150 cm</h3>
+                            <h3>@(HealthUtility.CalculateBMR(currentHealthInfo.UserProfile.Gender, currentHealthInfo.Weight, currentHealthInfo.Height, currentHealthInfo.UserProfile.Age).ToString("0.00") )</h3>
 
-                            <p>Your Height</p>
+                            <p>BMR</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-child"></i>
@@ -28,13 +30,13 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3><sup style="font-size: 20px">40Kg</sup></h3>
+                            <h3><sup style="font-size: 20px">@(HealthUtility.CalculateBMI(currentHealthInfo.Weight, currentHealthInfo.Height).ToString("0.00"))</sup></h3>
 
-                            <p>Your Weight</p>
+                            <p>BMI</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-stats-bars"></i>
@@ -42,13 +44,13 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>180</h3>
+                            <h3>@(HealthUtility.CalculateCalories(currentHealthInfo).ToString("0.00"))</h3>
 
-                            <p>Calorie Burn</p>
+                            <p>Calorie </p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-fire"></i>
@@ -56,13 +58,42 @@
                     </div>
                 </div>
                 <!-- ./col -->
-                <div class="col-lg-3 col-xs-6">
+                <div class="col-lg-2 col-xs-6">
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>65</h3>
+                            <h3>@(HealthUtility.CalCulateFat(currentHealthInfo.Abdomen,currentHealthInfo.Neck,currentHealthInfo.Height).ToString("0.00"))</h3>
 
-                            <p>Your Goal</p>
+                            <p>Fat</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-2 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>@(HealthUtility.CalCulateFat(currentHealthInfo.Abdomen,currentHealthInfo.Neck,currentHealthInfo.Height).ToString("0.00"))</h3>
+
+                            <p>Weight</p>
+                        </div>
+                        <div class="icon">
+                            <i class="fas fa-weight"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <!-- ./col -->
+                <div class="col-lg-2 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>@(HealthUtility.CalCulateFat(currentHealthInfo.Abdomen,currentHealthInfo.Neck,currentHealthInfo.Height).ToString("0.00"))</h3>
+
+                            <p>Idle Weight</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-pie-graph"></i>
@@ -343,32 +374,28 @@
                     <h2 class="title">Fill the basic information</h2>
                     <div class="header"><span class="active"></span><span></span><span></span></div>
                     <div class="fields">
-                        <form asp-action="" asp-controller="" method="post">
+                        <form asp-action="SaveUserHealthInformation" asp-controller="home" method="post">
                             <div class="modal-body 1step is-showing">
                                 <div class="title">Step 1</div>
                                 <div class="description">Fill your details.</div>
-                                <input type="number" placeholder="Height in cm" />
-                                <input type="number" placeholder="Weight in Kg" />
+                                <input type="number" name="Height" placeholder="Height in cms" />
+                                <input type="number" name="Weight" placeholder="Weight in Pound" />
+
                                 <div class="text-center">
                                     <div class="button">Start</div>
                                 </div>
                             </div>
                             <div class="modal-body 2step">
                                 <div class="title">Step 2</div>
-                                <div class="description">Choose a option</div>
-                                <label>
-                                    <input type="radio" name="radio" />Become Rich
-                                </label>
-                                <label>
-                                    <input type="radio" name="radio" id="radio2" />Become Genius
-                                </label>
+                                <input type="number" name="Abdomen" placeholder="Abdomen cms" />
+                                <input type="number" name="Neck" placeholder="Neck inches" />
                                 <div class="text-center fade-in">
                                     <div class="button">Next</div>
                                 </div>
                             </div>
                             <div class="modal-body 3step">
                                 <div class="title">Step 3</div>
-                                <div class="description">Thanks For Share Your Opinion</div>
+                                <div class="description">Thanks For Share </div>
                                 <div class="text-center">
                                     <button type="submit" class="button">Done!</button>
                                 </div>
@@ -390,5 +417,7 @@
 
 @section Scripts
 {
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="~/static/dist/js/pages/dashboard.js"></script>
     <script src="~/static/dist/js/dashboardform.js"></script>
 }

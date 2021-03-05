@@ -12,5 +12,10 @@ namespace GL.FC.Services
 
 
         }
+
+        public LikesModel AlreadyLikedData(int postId, int userId)
+        {
+            return _mapper.Map<LikesModel>(_repository.FirstOrDefault(a => a.LikedById == userId && a.PostId == postId, ""));
+        }
     }
 }

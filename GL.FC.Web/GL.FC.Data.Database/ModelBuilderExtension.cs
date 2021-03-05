@@ -13,7 +13,7 @@ namespace GL.FC.Data.Database
                 {
                     Id = 1,
                     Address = "New York",
-                    Age = "27",
+                    Age = 27,
                     Name = "Jesus L Schuster",
                     CreationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),
                     ModificationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),
@@ -28,7 +28,7 @@ namespace GL.FC.Data.Database
                 {
                     Id = 2,
                     Address = "New York",
-                    Age = "30",
+                    Age = 30,
                     Name = "Illa johnson",
                     CreationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),
                     ModificationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),

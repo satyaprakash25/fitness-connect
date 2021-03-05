@@ -23,7 +23,7 @@ namespace GL.FC.Services
 
         public TModel Add(TModel item)
         {
-            return _mapper.Map<TModel>( _repository.Add(_mapper.Map<TEntity>(item)));
+            return _mapper.Map<TModel>(_repository.Add(_mapper.Map<TEntity>(item)));
         }
 
 
@@ -40,12 +40,7 @@ namespace GL.FC.Services
 
         public bool Remove(long id)
         {
-            throw new NotImplementedException();
-        }
-
-        public bool Remove(params TModel[] items)
-        {
-            throw new NotImplementedException();
+           return _repository.Remove(id);
         }
 
         public bool Update(params TModel[] items)

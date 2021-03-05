@@ -6,8 +6,12 @@
 
         public UserProfileModel UserProfile { get; set; }
 
-        public string Height { get; set; }
+        public double Height { get; set; }
 
-        public string Weight { get; set; }
+        public double Weight { get; set; }
+
+        public double Abdomen { get; set; }
+
+        public double Neck { get; set; }
     }
 }

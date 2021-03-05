@@ -17,7 +17,8 @@ namespace GL.FC.Services
 
         public UserProfileModel GetUserByEmail(string email)
         {
-           return _mapper.Map<UserProfileModel>(_userProfileRepository.FirstOrDefault(a => a.Email.Equals(email),"UserHealthDetails"));
+            return _mapper.Map<UserProfileModel>(_userProfileRepository.FirstOrDefault(a => a.Email.Equals(email),
+                "UserHealthDetails"));
         }
     }
 }

@@ -19,16 +19,20 @@ namespace GL.FC.Web
         private readonly IPostImagesService _postImagesService;
         private readonly IWebHostEnvironment _env;
         private readonly ICategoryService _categoryService;
+        private readonly ILikesService _likesService;
+        private readonly ICommentService _commentService;
 
         public PostController(IUserProfileService userProfileService, IPostService postService,
-            IPostImagesService postImagesService, IWebHostEnvironment env, ICategoryService categoryService)
+            IPostImagesService postImagesService, IWebHostEnvironment env, ICategoryService categoryService,
+            ILikesService likesService, ICommentService commentService)
         {
             _userProfileService = userProfileService;
             _postService = postService;
             _postImagesService = postImagesService;
             _env = env;
             _categoryService = categoryService;
-
+            _likesService = likesService;
+            _commentService = commentService;
         }
         public IActionResult Index()
         {
@@ -38,7 +42,7 @@ namespace GL.FC.Web
         public IActionResult Connect()
         {
             ViewBag.CategoryList = _categoryService.GetAll(string.Empty);
-            IList<PostModel> result = _postService.GetAll("PostImages,CreatedByUser,Category").OrderByDescending(a=>a.CreationDate).ToList();
+            IList<PostModel> result = _postService.GetAll("PostImages,CreatedByUser,Category,LikesList,CommentList,CommentList.CommentedBy").OrderByDescending(a => a.CreationDate).ToList();
             return View(result ?? new List<PostModel>());
         }
 
@@ -98,9 +102,82 @@ namespace GL.FC.Web
         [HttpPost]
         public IActionResult Delete(int id)
         {
+            if (id > 0)
+            {
+                _postService.Remove(id);
+            }
             return RedirectToAction("connect");
         }
 
+        [HttpPost]
+        public IActionResult Like(int postId)
+        {
+            if (postId > 0)
+            {
+                PostModel post = _postService.GetById(postId, "");
 
+                if (post != null)
+                {
+                    LikesModel alreadyLiked = _likesService.AlreadyLikedData(postId, Convert.ToInt32(User.FindFirst("Id").Value));
+
+                    if (alreadyLiked == null)
+                    {
+                        LikesModel like = new LikesModel
+                        {
+                            PostId = postId,
+                            LikedById = Convert.ToInt32(User.FindFirst("Id").Value),
+                            CreationDate = DateTime.Now,
+                            ModificationDate = DateTime.Now,
+                        };
+                        _likesService.Add(like);
+                        return Ok("add");
+                    }
+
+                    else
+                    {
+                        _likesService.Remove(alreadyLiked.Id);
+                        return Ok("remove");
+                    }
+
+
+
+                }
+                return BadRequest();
+            }
+            return BadRequest();
+        }
+
+        [HttpPost]
+        public IActionResult Comment(int postId, string description)
+        {
+            if (postId > 0)
+            {
+                CommentModel comment = new CommentModel
+                {
+                    PostId = postId,
+                    CommentedById = Convert.ToInt32(User.FindFirst("Id").Value),
+                    CreationDate = DateTime.Now,
+                    ModificationDate = DateTime.Now,
+                    Description = description,
+                };
+
+                _commentService.Add(comment);
+
+                return RedirectToAction("connect");
+            }
+            return RedirectToAction("connect");
+        }
+
+        [HttpPost]
+        public IActionResult DeleteComment(int commentId)
+        {
+            if (commentId > 0)
+            {
+                _commentService.Remove(commentId);
+                return RedirectToAction("connect");
+            }
+            return RedirectToAction("connect");
+
+        }
     }
 }

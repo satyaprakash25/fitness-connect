@@ -4,14 +4,16 @@ using GL.FC.Data.Database;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GL.FC.Data.Database.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20210304134342_AlterUserHealthTable")]
+    partial class AlterUserHealthTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -227,8 +229,8 @@ namespace GL.FC.Data.Database.Migrations
                     b.Property<DateTime?>("CreationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<double>("Height")
-                        .HasColumnType("float");
+                    b.Property<string>("Height")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("ModificationDate")
                         .HasColumnType("datetime2");
@@ -242,8 +244,8 @@ namespace GL.FC.Data.Database.Migrations
                     b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    b.Property<double>("Weight")
-                        .HasColumnType("float");
+                    b.Property<string>("Weight")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -262,8 +264,8 @@ namespace GL.FC.Data.Database.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Age")
-                        .HasColumnType("float");
+                    b.Property<string>("Age")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("CreationDate")
                         .HasColumnType("datetime2");
@@ -304,7 +306,7 @@ namespace GL.FC.Data.Database.Migrations
                         {
                             Id = 1,
                             Address = "New York",
-                            Age = 27.0,
+                            Age = "27",
                             CreationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),
                             Email = "aae7toysp6v@temporary-mail.net",
                             Gender = "Male",
@@ -319,7 +321,7 @@ namespace GL.FC.Data.Database.Migrations
                         {
                             Id = 2,
                             Address = "New York",
-                            Age = 30.0,
+                            Age = "30",
                             CreationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),
                             Email = "Johnson@temporary-mail.net",
                             Gender = "Female",

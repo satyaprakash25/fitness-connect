@@ -9,7 +9,7 @@ namespace GL.FC.Data
     {
         public string Name { get; set; }
 
-        public string Age { get; set; }
+        public double Age { get; set; }
 
         public string Gender { get; set; }
 

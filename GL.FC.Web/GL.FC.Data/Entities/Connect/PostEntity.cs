@@ -25,5 +25,10 @@ namespace GL.FC.Data
         public UserProfileEntity CreatedByUser { get; set; }
 
         public IList<PostImagesEntity> PostImages { get; set; }
+
+        public IList<LikesEntity> LikesList { get; set; }
+
+        public IList<CommentEntity> CommentList { get; set; }
+
     }
 }

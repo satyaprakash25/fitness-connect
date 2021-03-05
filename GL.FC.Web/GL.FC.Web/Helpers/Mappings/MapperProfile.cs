@@ -17,6 +17,10 @@ namespace GL.FC.Web
             CreateMap<PostEntity, PostModel>().ReverseMap();
 
             CreateMap<PostImagesEntity, PostImagesModel>().ReverseMap();
+
+            CreateMap<LikesEntity, LikesModel>().ReverseMap();
+
+            CreateMap<CommentEntity, CommentModel>().ReverseMap();
         }
     }
 }

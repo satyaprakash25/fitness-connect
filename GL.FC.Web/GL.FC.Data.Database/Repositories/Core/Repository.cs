@@ -31,6 +31,13 @@ namespace GL.FC.Data.Database
 
         public bool Remove(long id)
         {
+            var result = context.Set<T>().Find((int)id);
+
+            if (context.Entry(result).State == EntityState.Detached)
+                context.Set<T>().Attach(result);
+
+            context.Set<T>().Remove(result);
+            context.SaveChanges();
             return true;
         }
 
