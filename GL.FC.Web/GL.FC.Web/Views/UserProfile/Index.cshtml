@@ -21,77 +21,194 @@
     <section class="content">
 
         <div class="row">
-            <div class="col-md-4">
-                <!-- Profile Image -->
-                <div class="box box-primary">
-                    <div class="box-body box-profile">
-                        @{ UserHealthModel currentHealthInfo = Model.UserHealthDetails.OrderByDescending(a => a.CreationDate).Take(1).FirstOrDefault() ?? new UserHealthModel(); }
+            <div class="col-md-5">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#memberinfo" data-toggle="tab">Member Information</a></li>
+                    <li><a href="#financial" data-toggle="tab">Financial</a></li>
+                    <li><a href="#relatedacc" data-toggle="tab">Related Accounts</a></li>
+                </ul>
+                <div class="nav-tabs-custom">
+                    <div class="tab-content">
+                        <div class="active tab-pane" id="memberinfo">
+                            <!-- Profile Image -->
+                            <div class="box box-primary">
+                                @{ UserHealthModel currentHealthInfo = Model.UserHealthDetails.OrderByDescending(a => a.CreationDate).Take(1).FirstOrDefault() ?? new UserHealthModel(); }
+                                <div class="box-body box-profile">
+                                    <img class="profile-user-img img-responsive img-circle" src="/@Model.ImagePath" alt="User profile picture">
 
-                        <img class="profile-user-img img-responsive img-circle" src="/@Model.ImagePath" alt="User profile picture">
+                                    <h3 class="profile-username text-center">@Model.Name</h3>
 
-                        <h3 class="profile-username text-center">@Model.Name</h3>
+                                    <p class="text-muted text-center"><i class="fa fa-circle text-success"></i> Member since @Model.JoiningDate.ToString("dd/MM/yyyy")</p>
 
-                        <p class="text-muted text-center">Member since @Model.JoiningDate.ToString("dd/MM/yyyy")</p>
+                                    <ul class="list-group list-group-unbordered">
+                                        <li class="list-group-item">
+                                            <b>Gender</b> <a class="pull-right">@Model.Gender</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Status</b> <a class="pull-right">Active</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Last Check in</b> <a class="pull-right">05/03/2021</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Weight</b> <a class="pull-right">@currentHealthInfo.Weight kg</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Height</b> <a class="pull-right">@currentHealthInfo.Height cms</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Abdomen</b> <a class="pull-right">@currentHealthInfo.Abdomen cms</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Neck</b> <a class="pull-right">@currentHealthInfo.Neck cms</a>
+                                        </li>
+                                    </ul>
 
-                        <ul class="list-group list-group-unbordered">
-                            <li class="list-group-item">
-                                <b>Gender </b> <a class="pull-right">@Model.Gender</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Age</b> <a class="pull-right">@Model.Age</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Weight</b> <a class="pull-right">@currentHealthInfo.Weight kg</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Height</b> <a class="pull-right">@currentHealthInfo.Height cms</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Abdomen</b> <a class="pull-right">@currentHealthInfo.Abdomen cms</a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Neck</b> <a class="pull-right">@currentHealthInfo.Neck cms</a>
-                            </li>
-                        </ul>
+                                    <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="financial">
+                            <!-- Profile Image -->
+                            <div class="box box-primary">
+                                <div class="box-body box-profile">
+                                    <img class="profile-user-img img-responsive img-circle" src="~/static/dist/img/user4-128x128.jpg" alt="User profile picture">
 
-                        <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                                    <h3 class="profile-username text-center">@Model.Name</h3>
+
+                                    <p class="text-muted text-center"><i class="fa fa-circle text-success"></i> Member since @Model.JoiningDate.ToString("dd/MM/yyyy")</p>
+
+                                    <ul class="list-group list-group-unbordered">
+                                        <li class="list-group-item">
+                                            <b>Billing Group</b> <a class="pull-right">28th</a>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Subscription</b>
+                                            <ul class="list-unstyled pull-right">
+                                                <li><b>Personal Training</b></li>
+                                                <li><b>Yoga</b></li>
+                                                <li><b>Swiming</b></li>
+                                                <li><b>Camping</b></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+                                    <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
+                        <!-- /.tab-pane -->
+                        <div class="tab-pane" id="relatedacc">
+                            <!-- Profile Image -->
+                            <div class="box box-primary">
+                                <div class="box-body box-profile">
+                                    <img class="profile-user-img img-responsive img-circle" src="~/static/dist/img/user4-128x128.jpg" alt="User profile picture">
+
+                                    <h3 class="profile-username text-center">@Model.Name</h3>
+
+                                    <p class="text-muted text-center"><i class="fa fa-circle text-success"></i> Member since @Model.JoiningDate.ToString("dd/MM/yyyy")</p>
+
+                                    <ul class="list-group list-group-unbordered">
+                                        <li class="list-group-item" data-toggle="modal" data-target="#erica">
+                                            <b>Erica Nicholson</b> <a class="pull-right">Spouse</a>
+                                        </li>
+                                        <li class="list-group-item" data-toggle="modal" data-target="#ryan">
+                                            <b>Ryan Nicholson</b> <a class="pull-right">Child</a>
+                                        </li>
+                                        <li class="list-group-item" data-toggle="modal" data-target="#john">
+                                            <b>John Nicholson</b> <a class="pull-right">Child</a>
+                                        </li>
+                                    </ul>
+                                    <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                                </div>
+                                <!-- /.box-body -->
+                            </div>
+                            <!-- /.box -->
+                        </div>
                     </div>
-                    <!-- /.box-body -->
-                </div>
-                <!-- /.box -->
-                <!-- About Me Box -->
-                <div class="box box-primary">
+                    <!-- Profile Image -->
+                    <div class="box box-primary" style="display:none">
+                        <div class="box-body box-profile">
+                            @*@{ UserHealthModel currentHealthInfo = Model.UserHealthDetails.OrderByDescending(a => a.CreationDate).Take(1).FirstOrDefault() ?? new UserHealthModel(); }*@
 
-                    <!-- /.box-header -->
-                    <div class="box-body">
-                        <strong><i class="fa fa-pencil margin-r-5"></i> About me</strong>
+                            <img class="profile-user-img img-responsive img-circle" src="/@Model.ImagePath" alt="User profile picture">
 
-                        <p class="text-muted">
-                            B.S. in Computer Science from the University of Tennessee at Knoxville
-                        </p>
+                            <h3 class="profile-username text-center">@Model.Name</h3>
 
-                        <hr>
+                            <p class="text-muted text-center">Member since @Model.JoiningDate.ToString("dd/MM/yyyy")</p>
 
-                        <strong><i class="fa fa-heartbeat margin-r-5"></i> Why I want to get in shape</strong>
+                            <ul class="list-group list-group-unbordered">
+                                <li class="list-group-item">
+                                    <b>Gender </b> <a class="pull-right">@Model.Gender</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Age</b> <a class="pull-right">@Model.Age</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Weight</b> <a class="pull-right">@currentHealthInfo.Weight lbs</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Height</b> <a class="pull-right">@currentHealthInfo.Height cms</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Abdomen</b> <a class="pull-right">@currentHealthInfo.Abdomen cms</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Neck</b> <a class="pull-right">@currentHealthInfo.Neck inches</a>
+                                </li>
+                            </ul>
 
-                        <p class="text-muted">Dummy</p>
-
-                        <hr>
-
-                        <strong><i class="fa fa-user-plus margin-r-5"></i> My Inspiration</strong>
-
-                        <p>No one</p>
-                        <hr />
-
-                        <strong><i class="fa fa-users margin-r-5"></i> Friends</strong>
-
+                            <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                        </div>
+                        <!-- /.box-body -->
                     </div>
-                    <!-- /.box-body -->
+                    <!-- /.box -->
+                    <!-- About Me Box -->
+                    <div class="box box-primary">
+
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <strong><i class="fa fa-pencil margin-r-5"></i> About me</strong>
+
+                            <p class="text-muted">
+                                B.S. in Computer Science from the University of Tennessee at Knoxville
+                            </p>
+
+                            <hr>
+
+                            <strong><i class="fa fa-heartbeat margin-r-5"></i> Why I want to get in shape</strong>
+
+                            <p class="text-muted">Dummy</p>
+
+                            <hr>
+
+                            <strong><i class="fa fa-user-plus margin-r-5"></i> My Inspiration</strong>
+
+                            <p>No one</p>
+                            <hr />
+
+                            <strong><i class="fa fa-users margin-r-5"></i> Friends</strong>
+
+                            <p>
+
+                            </p>
+
+                            <hr>
+
+
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
                 </div>
-                <!-- /.box -->
             </div>
             <!-- /.col -->
-            <div class="col-md-8">
+            <div class="col-md-7">
                 <div class="nav-tabs-custom">
                     <ul class="nav nav-tabs">
                         <li class="active"><a href="#timeline" data-toggle="tab">Timeline</a></li>
@@ -193,10 +310,150 @@
                 <!-- /.nav-tabs-custom -->
             </div>
             <!-- /.col -->
+            <!-- /.row -->
         </div>
-        <!-- /.row -->
-
     </section>
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+<div class="modal fade in" id="erica" style="padding-right: 17px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Erica Nicholson</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body box-profile">
+                    @*<img class="profile-user-img img-responsive img-circle" src="~/static/dist/img/user4-128x128.jpg" alt="User profile picture">*@
+                    <div class="row text-center">
+                        <i class="fa fa-female profile-user-img img-responsive img-circle text-blue" style="font-size:100px"></i>
+                    </div>
+                    <p class="text-muted text-center"><i class="fa fa-circle text-success"></i> Member since 03/06/2019</p>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>Gender</b> <a class="pull-right">Female</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Status</b> <a class="pull-right">Active</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Last Check in</b> <a class="pull-right">05/03/2021</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Weight</b> <a class="pull-right">230 lbs</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Height</b> <a class="pull-right">155 cms</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Abdomen</b> <a class="pull-right">0 cms</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Neck</b> <a class="pull-right">0 cms</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade in" id="ryan" style="padding-right: 17px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">Ryan Nicholson</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body box-profile">
+                    <div class="row text-center">
+                        <i class="fa fa-child profile-user-img img-responsive img-circle text-aqua" style="font-size:100px"></i>
+                    </div>
+
+                    <p class="text-muted text-center"><i class="fa fa-circle text-success"></i> Member since 09/21/2020</p>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>Gender</b> <a class="pull-right">Male</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Status</b> <a class="pull-right">Active</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Last Check in</b> <a class="pull-right">05/03/2021</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Weight</b> <a class="pull-right">230 lbs</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Height</b> <a class="pull-right">155 cms</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Abdomen</b> <a class="pull-right">0 cms</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Neck</b> <a class="pull-right">0 cms</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal fade in" id="john" style="padding-right: 17px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <h4 class="modal-title">John Nicholson</h4>
+            </div>
+            <div class="modal-body">
+                <div class="box-body box-profile">
+                    <div class="row text-center">
+                        <i class="fa fa-child profile-user-img img-responsive img-circle text-red" style="font-size:100px"></i>
+                    </div>
+
+                    <p class="text-muted text-center"><i class="fa fa-circle text-success"></i> Member since 03/23/2020</p>
+
+                    <ul class="list-group list-group-unbordered">
+                        <li class="list-group-item">
+                            <b>Gender</b> <a class="pull-right">Male</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Status</b> <a class="pull-right">Active</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Last Check in</b> <a class="pull-right">05/03/2021</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Weight</b> <a class="pull-right">180 lbs</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Height</b> <a class="pull-right">125 cms</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Abdomen</b> <a class="pull-right">0 cms</a>
+                        </li>
+                        <li class="list-group-item">
+                            <b>Neck</b> <a class="pull-right">0 cms</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
