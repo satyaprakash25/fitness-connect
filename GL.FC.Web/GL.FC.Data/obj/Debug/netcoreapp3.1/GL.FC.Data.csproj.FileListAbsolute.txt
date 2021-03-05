@@ -7,3 +7,12 @@ D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data
 D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.dll
 D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.pdb
 D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.csprojAssemblyReference.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data\bin\Debug\netcoreapp3.1\GL.FC.Data.deps.json
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data\bin\Debug\netcoreapp3.1\GL.FC.Data.dll
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data\bin\Debug\netcoreapp3.1\GL.FC.Data.pdb
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.csprojAssemblyReference.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.AssemblyInfoInputs.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.AssemblyInfo.cs
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.csproj.CoreCompileInputs.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.dll
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data\obj\Debug\netcoreapp3.1\GL.FC.Data.pdb

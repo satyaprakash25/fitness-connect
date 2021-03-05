@@ -7,3 +7,12 @@ D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Sh
 D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Shared.dll
 D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Shared.pdb
 D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Shared.csprojAssemblyReference.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Shared\bin\Debug\netcoreapp3.1\GL.FC.Shared.deps.json
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Shared\bin\Debug\netcoreapp3.1\GL.FC.Shared.dll
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Shared\bin\Debug\netcoreapp3.1\GL.FC.Shared.pdb
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Shared.csprojAssemblyReference.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Shared.AssemblyInfoInputs.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Shared.AssemblyInfo.cs
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Shared.csproj.CoreCompileInputs.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Shared.dll
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Shared\obj\Debug\netcoreapp3.1\GL.FC.Shared.pdb

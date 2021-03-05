@@ -9,7 +9,7 @@ document.querySelector('#email').addEventListener('focus', function(e) {
       easing: 'easeOutQuart'
     },
     strokeDasharray: {
-      value: '240 1386',
+      value: '240 1200',
       duration: 700,
       easing: 'easeOutQuart'
     }
@@ -25,7 +25,7 @@ document.querySelector('#password').addEventListener('focus', function(e) {
       easing: 'easeOutQuart'
     },
     strokeDasharray: {
-      value: '240 1386',
+      value: '240 1200',
       duration: 700,
       easing: 'easeOutQuart'
     }

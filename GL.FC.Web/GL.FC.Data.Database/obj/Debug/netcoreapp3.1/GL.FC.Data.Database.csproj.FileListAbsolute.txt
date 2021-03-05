@@ -12,3 +12,17 @@ D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data.Database\obj\Debug\netcoreapp3.1\G
 D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data.Database\obj\Debug\netcoreapp3.1\GL.FC.Data.Database.pdb
 D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data.Database\bin\Debug\netcoreapp3.1\GL.FC.Shared.dll
 D:\Satyam\FitnessConnect\GL.FC.Web\GL.FC.Data.Database\bin\Debug\netcoreapp3.1\GL.FC.Shared.pdb
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\bin\Debug\netcoreapp3.1\GL.FC.Data.Database.deps.json
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\bin\Debug\netcoreapp3.1\GL.FC.Data.Database.dll
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\bin\Debug\netcoreapp3.1\GL.FC.Data.Database.pdb
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\bin\Debug\netcoreapp3.1\GL.FC.Data.dll
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\bin\Debug\netcoreapp3.1\GL.FC.Shared.dll
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\bin\Debug\netcoreapp3.1\GL.FC.Data.pdb
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\bin\Debug\netcoreapp3.1\GL.FC.Shared.pdb
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\obj\Debug\netcoreapp3.1\GL.FC.Data.Database.csprojAssemblyReference.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\obj\Debug\netcoreapp3.1\GL.FC.Data.Database.AssemblyInfoInputs.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\obj\Debug\netcoreapp3.1\GL.FC.Data.Database.AssemblyInfo.cs
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\obj\Debug\netcoreapp3.1\GL.FC.Data.Database.csproj.CoreCompileInputs.cache
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\obj\Debug\netcoreapp3.1\GL.FC.Data.Database.csproj.CopyComplete
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\obj\Debug\netcoreapp3.1\GL.FC.Data.Database.dll
+E:\Code\Lab days\March\GL.FC.Web\GL.FC.Data.Database\obj\Debug\netcoreapp3.1\GL.FC.Data.Database.pdb

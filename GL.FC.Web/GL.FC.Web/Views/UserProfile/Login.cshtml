@@ -34,12 +34,12 @@
                     </svg>
                     <form asp-action="UserLogin" asp-controller="UserProfile" method="post">
                         <div class="form">
-                            <label for="email">Email</label>
+                            <label for="email">Username</label>
                             <input type="number" id="email" class="form-control" name="id">       @*This*@
                             @*<span class="glyphicon glyphicon-envelope form-control-feedback"></span>*@
                             <label for="password">Password</label>
                             <input type="password" id="password">
-                            <input type="submit" id="submit" value="Submit">
+                            <input type="submit" id="submit" value="Login">
                         </div>
                     </form>
                     @*<div class="form">
@@ -54,6 +54,6 @@
         </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.js"></script>
-    <script src="~/static/dist/js/loginPage.js"></script>
+    <script src="~/static/dist/js/pages/loginPage.js"></script>
 </body>
 </html>

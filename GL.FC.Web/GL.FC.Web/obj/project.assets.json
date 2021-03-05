@@ -9786,43 +9786,49 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\satyam.prakash\\.nuget\\packages\\": {}
+    "C:\\Users\\suyash.mehrotra\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Web\\GL.FC.Web.csproj",
+      "projectUniqueName": "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Web\\GL.FC.Web.csproj",
       "projectName": "GL.FC.Web",
-      "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Web\\GL.FC.Web.csproj",
-      "packagesPath": "C:\\Users\\satyam.prakash\\.nuget\\packages\\",
-      "outputPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Web\\obj\\",
+      "projectPath": "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Web\\GL.FC.Web.csproj",
+      "packagesPath": "C:\\Users\\suyash.mehrotra\\.nuget\\packages\\",
+      "outputPath": "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Web\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\satyam.prakash\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\suyash.mehrotra\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://gitlab.com/api/v4/projects/24410743/packages/nuget/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data.Database\\GL.FC.Data.Database.csproj": {
-              "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data.Database\\GL.FC.Data.Database.csproj"
+            "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Data.Database\\GL.FC.Data.Database.csproj": {
+              "projectPath": "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Data.Database\\GL.FC.Data.Database.csproj"
             },
-            "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data\\GL.FC.Data.csproj": {
-              "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Data\\GL.FC.Data.csproj"
+            "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Data\\GL.FC.Data.csproj": {
+              "projectPath": "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Data\\GL.FC.Data.csproj"
             },
-            "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Services\\GL.FC.Services.csproj": {
-              "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Services\\GL.FC.Services.csproj"
+            "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Services\\GL.FC.Services.csproj": {
+              "projectPath": "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Services\\GL.FC.Services.csproj"
             },
-            "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Shared\\GL.FC.Shared.csproj": {
-              "projectPath": "D:\\Satyam\\labday\\work\\fitness-connect\\GL.FC.Web\\GL.FC.Shared\\GL.FC.Shared.csproj"
+            "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Shared\\GL.FC.Shared.csproj": {
+              "projectPath": "E:\\Code\\Lab days\\March\\GL.FC.Web\\GL.FC.Shared\\GL.FC.Shared.csproj"
             }
           }
         }
@@ -9910,7 +9916,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
