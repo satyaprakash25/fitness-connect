@@ -44,7 +44,7 @@
                             <p>BMI</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-calculator"></i>
+                            <i class="fa fa-file-medical-alt"></i>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                             <p>Calorie </p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-heart"></i>
+                            <i class="fa fa-heartbeat"></i>
                         </div>
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                             <p>Fat</p>
                         </div>
                         <div class="icon">
-                            <i class="fa fa-hand-rock-o"></i>
+                            <i class="fa fa-walking"></i>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                     <!-- small box -->
                     <div class="small-box bg-maroon-gradient">
                         <div class="inner">
-                            <h3>@(currentHealthInfo.Weight * 2.205)</h3>
+                            <h3>@((currentHealthInfo.Weight * 2.205).ToString("0.00"))</h3>
 
                             <p>Weight (lbs)</p>
                         </div>
@@ -101,7 +101,7 @@
                             <p>Idle Weight (lbs)</p>
                         </div>
                         <div class="icon">
-                            <i class="ion ion-pie-graph"></i>
+                            <i class="fa fa-trophy"></i>
                         </div>
                     </div>
                 </div>
@@ -116,7 +116,6 @@
                     <div class="box box-primary">
                         <div class="box-header with-border">
                             <h3 class="box-title">Body Weight Graph</h3>
-
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse">
                                     <i class="fa fa-minus"></i>
@@ -129,6 +128,7 @@
                         </div>
                         <!-- /.box-body -->
                     </div>
+                    <partial name="Components/EventCalendar" />
                     <!-- /.nav-tabs-custom -->
                 </section>
                 <!-- /.Left col -->
@@ -136,7 +136,7 @@
                 <section class="col-lg-5 connectedSortable">
 
                     <!-- Calendar -->
-                    <div class="box box-solid bg-green-gradient">
+                    <div class="box box-solid bg-green-gradient" style="display:none">
                         <div class="box-header">
                             <i class="fa fa-calendar"></i>
 
@@ -234,19 +234,32 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <ul class="todo-list">
+                                <!--<li>-->
+                                <!-- drag handle -->
+                                <!--<span class="handle">
+                                    <i class="fa fa-ellipsis-v"></i>
+                                    <i class="fa fa-ellipsis-v"></i>
+                                </span>-->
+                                <!-- checkbox -->
+                                <!--<input type="checkbox" value="">-->
+                                <!-- todo text -->
+                                <!--<span class="text">Sprint Walk</span>-->
+                                <!-- Emphasis label -->
+                                <!--<small class="label label-danger"><i class="fa fa-clock-o"></i> 30 mins</small>-->
+                                <!-- General tools such as edit or delete-->
+                                <!--<div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
                                 <li>
-                                    <!-- drag handle -->
                                     <span class="handle">
                                         <i class="fa fa-ellipsis-v"></i>
                                         <i class="fa fa-ellipsis-v"></i>
                                     </span>
-                                    <!-- checkbox -->
                                     <input type="checkbox" value="">
-                                    <!-- todo text -->
-                                    <span class="text">Design a nice theme</span>
-                                    <!-- Emphasis label -->
-                                    <small class="label label-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                                    <!-- General tools such as edit or delete-->
+                                    <span class="text">Squats</span>
+                                    <small class="label label-info"><i class="fa fa-clock-o"></i> 30 Seconds</small>
                                     <div class="tools">
                                         <i class="fa fa-edit"></i>
                                         <i class="fa fa-trash-o"></i>
@@ -258,20 +271,7 @@
                                         <i class="fa fa-ellipsis-v"></i>
                                     </span>
                                     <input type="checkbox" value="">
-                                    <span class="text">Make the theme responsive</span>
-                                    <small class="label label-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li>
-                                    <span class="handle">
-                                        <i class="fa fa-ellipsis-v"></i>
-                                        <i class="fa fa-ellipsis-v"></i>
-                                    </span>
-                                    <input type="checkbox" value="">
-                                    <span class="text">Let theme shine like a star</span>
+                                    <span class="text">No Sugar Day</span>
                                     <small class="label label-warning"><i class="fa fa-clock-o"></i> 1 day</small>
                                     <div class="tools">
                                         <i class="fa fa-edit"></i>
@@ -284,8 +284,8 @@
                                         <i class="fa fa-ellipsis-v"></i>
                                     </span>
                                     <input type="checkbox" value="">
-                                    <span class="text">Let theme shine like a star</span>
-                                    <small class="label label-success"><i class="fa fa-clock-o"></i> 3 days</small>
+                                    <span class="text">Meditation</span>
+                                    <small class="label label-success"><i class="fa fa-clock-o"></i> 30 minutes</small>
                                     <div class="tools">
                                         <i class="fa fa-edit"></i>
                                         <i class="fa fa-trash-o"></i>
@@ -297,8 +297,8 @@
                                         <i class="fa fa-ellipsis-v"></i>
                                     </span>
                                     <input type="checkbox" value="">
-                                    <span class="text">Check your messages and notifications</span>
-                                    <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 week</small>
+                                    <span class="text">Swimming</span>
+                                    <small class="label label-primary"><i class="fa fa-clock-o"></i> 1 hour</small>
                                     <div class="tools">
                                         <i class="fa fa-edit"></i>
                                         <i class="fa fa-trash-o"></i>
@@ -310,13 +310,13 @@
                                         <i class="fa fa-ellipsis-v"></i>
                                     </span>
                                     <input type="checkbox" value="">
-                                    <span class="text">Let theme shine like a star</span>
-                                    <small class="label label-default"><i class="fa fa-clock-o"></i> 1 month</small>
+                                    <span class="text" id="content5">Gym</span>
+                                    <small class="label label-default"><i class="fa fa-clock-o"></i> 1 hour</small>
                                     <div class="tools">
-                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-edit" id="editItem5"></i>
                                         <i class="fa fa-trash-o"></i>
                                     </div>
-                                </li>
+                                </li>-->
                             </ul>
                         </div>
                         <!-- /.box-body -->
@@ -414,7 +414,43 @@
             lineColors: ['#a0d0e0'],
             hideHover: 'auto'
         });
+        
 
+        var tododata = [
+            { 'task': 'Sprint Walk', 'time': '30 mins','alert':'success' },
+            { 'task': 'Planks', 'time': '30 seconds','alert':'danger' },
+            { 'task': 'No Sugar Day', 'time': '24 hrs','alert':'warning' },
+            { 'task': 'Meditation', 'time': '30 mins','alert':'danger' },
+            { 'task': 'Swimming', 'time': '30 mins','alert':'warning' },
+        ];
+
+
+        $.each(tododata, function (i, item) {
+            var todoitems = '<li><span class="handle"><i class="fa fa-ellipsis-v"></i><i class="fa fa-ellipsis-v"></i></span>';
+            todoitems += '<input type = "checkbox" value=""><span class="text todospan">'+item.task+'</span><input type="text" class="todotext" value="" style="display:none"/>';
+            todoitems += '<small class="label label-'+item.alert+'"><i class="fa fa-clock-o"></i> '+item.time+'</small><div class="tools">';
+            todoitems += '<i class="fa fa-edit editItem"></i><i class="fa fa-trash-o"></i></div></li>';
+            $('.todo-list').append(todoitems);
+        });
+        $('.editItem').click(function () {
+            if ($(this).hasClass('fa-edit')) {
+                var span = $(this).closest('li').find('.todospan');                
+                span.hide();
+                var textbox = $(this).closest('li').find('.todotext');
+                textbox.val(span.text())
+                textbox.show();
+                $(this).removeClass('fa-edit').addClass('fa-save');
+            }
+            else {
+                var element = $(this).closest('li').find('.todospan');
+                element.text(element.closest('li').find('.todotext').val())
+                element.show();
+                element.siblings('.todotext').hide();
+                $(this).removeClass('fa-save').addClass('fa-edit');
+            }
+        });
     })
     </script>
+    <script src="~/static/event-calendar/js/evo-calendar.min.js"></script>
+    <script src="~/static/event-calendar/demo/demo.js"></script>
 }
