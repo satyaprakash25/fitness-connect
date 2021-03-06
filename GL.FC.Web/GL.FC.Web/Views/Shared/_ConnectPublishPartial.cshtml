@@ -1,0 +1,58 @@
+﻿@model IList<GL.FC.Shared.PostModel>
+@{
+    ViewData["Title"] = "Fitness Connect";
+    int cnt = 1;
+}
+<div class="col-lg-11">
+    <form asp-action="connect" asp-controller="Post" method="post" enctype="multipart/form-data" asp-antiforgery="true">
+        <div class="box box-solid">
+            <div class="box-body">
+                <!-- Custom Tabs -->
+                <div>
+                    <textarea name="Description" placeholder="What's in your mind?" id="textAreaDescription"
+                              style="font-size: 14px; line-height: 18px;  padding: 10px; width:100%;border-radius:11px;"></textarea>
+                    <div class="box-footer" style="display:inline-block; float:right; padding-bottom:0">
+                        <div style="display:none;" class="form-group">
+                            @foreach (var item in ((IList<GL.FC.Shared.CategoryModel>)ViewBag.CategoryList).Select((value, i) => new { i, value }))
+                            {
+                                <label class="radio-inline">
+                                    <input type="radio" name="CategoryId" value="@item.value.Id" @(item.i == 0 ? "checked" : string.Empty)>@item.value.Title
+                                </label>
+                            }
+                        </div>
+                        <div class="image-upload">
+                            <label for="file-input">
+                                <input class="fa fa-image" name="Files" id="UploadForm" type="file" multiple
+                                       style="cursor:pointer; transform: scale(2.5,2); width: 15px; padding-right: 11px;color:#605CA8" aria-hidden="true" />
+                            </label>
+
+                            <input id="file-input" type="file" />
+                        </div>
+                        <div class="form-group dropdown">
+                            <div class="btn-group" style="margin-left: 20px;">
+                                <button type="submit" class="btn btn-primary btn-catgry" style="padding:4px; min-width:120px; background-color:#6A5ACD;border-color: #6A5ACD;">@(((IList<GL.FC.Shared.CategoryModel>)ViewBag.CategoryList).FirstOrDefault().Title)</button>
+                                <button type="button" class="btn btn-primary btn-catgry dropdown-toggle" data-toggle="dropdown" style="padding: 4px;background-color: #6A5ACD;">
+                                    <span class="caret"></span>
+                                </button>
+                                <ul id="dropdown-menu-forBtn" class="dropdown-menu" role="menu">
+                                    @foreach (var item in ((IList<GL.FC.Shared.CategoryModel>)ViewBag.CategoryList).Select((value, i) => new { i, value }))
+                                    {
+                                        <li><a data-value="@cnt">@item.value.Title</a></li>
+                                        cnt++;
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="form-group" style="display:none;">
+                            <button type="submit" class="btn bg-purple-gradient pull-right">Publish</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div id="divGallery" class="gallery">
+                <img id="prvwUploadedImg" src="#" style="display:none;" />
+            </div>
+        </div>
+    </form>
+</div>

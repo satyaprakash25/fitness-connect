@@ -3,68 +3,18 @@
 @{
     ViewData["Title"] = "Fitness Connect";
 }
-<!-- bootstrap wysihtml5 - text editor -->
-<link rel="stylesheet" href="~/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" />
-<link href="~/static/dist/css/dropzone.min.css" rel="stylesheet" />
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link href="~/static/dist/css/connectPage.css" rel="stylesheet" />
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-        <h1>
-            Fitness Connect
-        </h1>
-        <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li class="active">Connect</li>
-        </ol>
-    </section>
 
     <!-- Main content -->
     <section class="content">
         <div class="row">
-            <div class="col-lg-10">
-                <form asp-action="connect" asp-controller="Post" method="post" enctype="multipart/form-data" asp-antiforgery="true">
-                    <div class="box box-warning">
-                        <div class="box-body">
-                            <!-- Custom Tabs -->
-                            <div class="nav-tabs-custom">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#tab_1" data-toggle="tab" class="text-blue"><i class="fa fa-pencil"></i> Create a post</a></li>
-                                    <li><a href="#tab_2" data-toggle="tab" class="text-navy"><i class="fa fa-photo"></i> Photo Album</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="tab_1">
-                                        <textarea name="Description" class="richtextbox" placeholder="Place some text here" style="width: 100%; height: 100px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-                                    </div>
-                                    <div class="tab-pane" id="tab_2">
-                                        <div class="dropzone" style="height:100px">
-                                            <input name="Files" id="UploadForm" type="file" multiple />
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="box-footer">
-                            <div class="form-group">
-                                <b> Select Category</b>
-                                @foreach (var item in ((IList<GL.FC.Shared.CategoryModel>)ViewBag.CategoryList).Select((value, i) => new { i, value }))
-                                {
-                                    <label class="radio-inline">
-                                        <input type="radio" name="CategoryId" value="@item.value.Id" @(item.i == 0 ? "checked" : string.Empty)>@item.value.Title
-                                    </label>
-                                }
-                            </div>
-                            <div class="form-group">
-                                <button type="submit" class="btn bg-purple-gradient pull-right">Publish</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+            <partial name="/Views/Shared/_ConnectPublishPartial.cshtml" for=@Model>
         </div>
         <div class="row">
-            <div class="col-lg-10">
+            <div class="col-lg-11">
                 <div class="box box-primary">
                     <div class="box-body">
                         @foreach (var item in Model)
@@ -79,8 +29,8 @@
 
                                     @if (User.FindFirst("Id").Value.Equals(item.CreatedByUser.Id.ToString()))
                                     {
-                                        <form asp-action="Delete" asp-controller="Post" asp-antiforgery="true">
-                                            <input type="hidden" value="@item.Id" />
+                                        <form asp-action="Delete" asp-controller="Post" method="post" asp-antiforgery="true">
+                                            <input type="hidden" name="id" value="@item.Id" />
                                             <button type="submit" class="pull-right btn btn-xs btn-box-tool label bg-red" style="margin-left:15px">
                                                 <i class="fa fa-trash"></i>
                                             </button>
@@ -108,7 +58,7 @@
                                                 @foreach (var slider in item.PostImages.Select((value, i) => new { i, value }))
                                                 {
                                                     <div class="item @(slider.i==0?"active":"")">
-                                                        <img src="/Uploads/posts/@slider.value.ImagePath" class="d-block w-100" alt="...">
+                                                        <img src="/Uploads/posts/@slider.value.ImagePath" class="d-block w-100 img-responsive" style="width:75%;height:auto;margin:auto;" alt="...">
                                                     </div>
 
                                                 }
@@ -126,14 +76,22 @@
                                     }
                                     else
                                     {
-                                        <img class="img-responsive pad" src="/uploads/posts/@item.PostImages.FirstOrDefault().ImagePath" alt="Photo">
+                                        <img class="img-responsive pad" src="/uploads/posts/@item.PostImages.FirstOrDefault().ImagePath" style="width:75%;height:auto;margin:auto;" alt="Photo">
                                     }
                                 }
 
                                 <!-- /.user-block -->
-                                <p>
-                                    @Html.Raw(item.Description)
-                                </p>
+                                @if (!string.IsNullOrEmpty(item.Description))
+                                {
+                                    if (Html.Raw(item.Description).ToString().Length > 100)
+                                    {
+                                        <p>@(Html.Raw(item.Description.Substring(0,100))) <a href="#">Continue reading...</a></p>
+                                    }
+                                    else
+                                    {
+                                        <p>@(Html.Raw(item.Description))</p>
+                                    }
+                                }
                                 <ul class="list-inline">
                                     <li>
                                         <a href="javascript:void" onclick="Like(@item.Id)" id="like-btn-@item.Id"
@@ -195,32 +153,7 @@
 
 @section Scripts
 {
-    <!-- Bootstrap WYSIHTML5 -->
-    <script src="~/static/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
-    <script src="~/static/dist/js/dropzone.min.js"></script>
     <script>
-        Dropzone.autoDiscover = false;
-        $(".richtextbox").wysihtml5({
-            "font-styles": true, //Font styling, e.g. h1, h2, etc. Default true
-            "emphasis": true, //Italics, bold, etc. Default true
-            "lists": true, //(Un)ordered lists, e.g. Bullets, Numbers. Default true
-            "html": false, //Button which allows you to edit the generated HTML. Default false
-            "link": true, //Button to insert a link. Default true
-            "image": false, //Button to insert an image. Default true,
-            "color": false, //Button to change color of font
-            "blockquote": true, //Blockquote
-            "size": "sm" //default: none, other options are xs, sm, lg
-        });
-        $(document).ready(function () {
-            Dropzone.options.UploadForm = {
-                dictDefaultMessage: "Drag your images",
-                clickable: true,
-                enqueueForUpload: true,
-                maxFilesize: 1,
-                uploadMultiple: false,
-                addRemoveLinks: true
-            };
-        })
         function Like(postid) {
             $("#like-btn-" + postid).find('i').toggleClass('text-red');
             var jsonResult = {
@@ -246,4 +179,22 @@
             });
         }
     </script>
+    @*<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>*@
+    <script src="~/static/dist/js/inputEmoji.js"></script>
+    <script>
+        $(function () {
+            $('#textAreaDescription').emoji({ place: 'after' });
+
+        })
+        $('#textAreaDescription').focus(function () {
+            $(this).animate({ height: 150 + 'px' }, 800);
+        });
+
+        $('#textAreaDescription').blur(function () {
+            if ($(this).val().length == "" || $(this).val().length == undefined)
+                $(this).animate({ height: 50 + 'px' }, 1000);
+        });
+
+    </script>
+    <script src="~/static/dist/js/pages/connectPage.js"></script>
 }

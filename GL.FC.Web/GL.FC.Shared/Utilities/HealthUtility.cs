@@ -79,10 +79,9 @@ namespace GL.FC.Shared
 
         public static double IdealWeight(double height, double weight, string gender)
         {
-            double Weighttous = 2.205 * weight;
             double heighttous = 0.0328084 * height * 12;
             if (gender.Equals("Male"))
-                return 110.231 + 5.07063 * (Weighttous - 60);
+                return 110.231 + 5.07063 * (heighttous - 60);
             else
                 return 100.3103 + 5.07063 * (heighttous - 60);
         }

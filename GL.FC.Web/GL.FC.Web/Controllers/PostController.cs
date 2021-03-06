@@ -34,6 +34,7 @@ namespace GL.FC.Web
             _likesService = likesService;
             _commentService = commentService;
         }
+       
         public IActionResult Index()
         {
             return View();

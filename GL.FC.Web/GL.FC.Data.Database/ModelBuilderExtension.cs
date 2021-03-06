@@ -48,7 +48,7 @@ namespace GL.FC.Data.Database
                 new CategoryEntity
                 {
                     Id= 1, 
-                    Title = "Transformation",
+                    Title = "Stories",
                     CreationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),
                     ModificationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),
                     BgColor = "green"
@@ -56,7 +56,7 @@ namespace GL.FC.Data.Database
                 new CategoryEntity
                 {
                     Id = 2,
-                    Title = "Stories",
+                    Title = "Transformation",
                     CreationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),
                     ModificationDate = new DateTime(2020, 10, 30, 10, 51, 4, 5, DateTimeKind.Local).AddTicks(9420),
                     BgColor = "yellow"

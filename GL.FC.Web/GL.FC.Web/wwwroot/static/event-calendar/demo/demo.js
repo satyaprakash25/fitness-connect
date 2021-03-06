@@ -56,6 +56,15 @@ var events = [
         type: "party",
         color: "#3c8dbc", // Event custom color (optional)
         icon: "birthday-cake"
+    },
+    {
+        id: 'bHay69s',
+        name: "Sister's Marriage",
+        date: "April/19/2021", // Date range
+        description: "Marriage", // Event description (optional)
+        type: "party",
+        color: "#3c8dbc", // Event custom color (optional)
+        icon: "birthday-cake"
     }];
 
 var active_events = [];
@@ -93,15 +102,15 @@ $(document).ready(function () {
         format: "MM dd, yyyy",
         titleFormat: "MM",
         theme: 'Royal Navy',
-        sidebarDisplayDefault: false,
-        sidebarToggler: false,
+        //sidebarDisplayDefault: false,
+        //sidebarToggler: false,
         calendarEvents: [
             {
                 id: 'bHay68s', // Event's ID (required)
                 name: "Personal Traning", // Event name (required)
                 //badge: "03/01 - 03/31", // Event badge (optional)
                 description: "PT for Gym", // Event description (optional)
-                date: "March/06/2021", // Date range
+                date: "March/07/2021", // Date range
                 //date: ["March/1/2021", "March/31/2021"], // Event date (required)
                 type: "event", // Event type (required)
                 color: "#63d867", // Event custom color (optional)
@@ -147,6 +156,16 @@ $(document).ready(function () {
                 id: 'bHay69s',
                 name: "Marshal's Birthday",
                 date: "March/15/2021", // Date range
+                description: "Marshal's Birthday", // Event description (optional)
+                type: "party",
+                color: "#3c8dbc", // Event custom color (optional)
+                icon: "birthday-cake"
+            }
+            ,
+            {
+                id: 'bHay69s',
+                name: "Marshal's Birthday",
+                date: "April/15/2021", // Date range
                 description: "Marshal's Birthday", // Event description (optional)
                 type: "party",
                 color: "#3c8dbc", // Event custom color (optional)

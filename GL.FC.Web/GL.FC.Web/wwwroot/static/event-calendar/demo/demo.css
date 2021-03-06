@@ -1,24 +1,4 @@
-*,
-::after,
-::before {
-	-webkit-box-sizing: border-box;
-	box-sizing: border-box;
-	-webkit-transition: all .3s ease;
-	-o-transition: all .3s ease;
-	transition: all .3s ease;
-}
-html,
-body {
-	padding: 0;
-	margin: 0;
-}
-body {
-	background-image: -o-linear-gradient(45deg, #6ac1c5, #bda5ff);
-	background-attachment: fixed;
-	background-image: linear-gradient(45deg, #6ac1c5, #bda5ff);
-	background-repeat: no-repeat;
-	min-height: 100vh;
-}
+
 ::-moz-selection {
 	color: #fff;
 	background-color: #aeaaf5;
@@ -152,9 +132,7 @@ main {
 	margin: 0 auto;
 	min-height: 100vh;
 }
-section {
-	padding: 20px;
-}
+
 section .section-content {
 	position: relative;
 	margin-bottom: 50px;
