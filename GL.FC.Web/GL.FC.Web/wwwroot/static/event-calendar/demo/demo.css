@@ -717,3 +717,18 @@ code span.violet {
 		font-size: 12px
 	}
 }
+.eventlist {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 3px;
+}
+.meeting {
+	background-color: #dd4b39;
+}
+.event {
+	background-color: #63d867;	
+}
+.party {
+	background-color: #3c8dbc;
+}
