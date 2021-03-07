@@ -83,9 +83,9 @@
                                 <!-- /.user-block -->
                                 @if (!string.IsNullOrEmpty(item.Description))
                                 {
-                                    if (Html.Raw(item.Description).ToString().Length > 100)
+                                    if (Html.Raw(item.Description).ToString().Length > 400)
                                     {
-                                        <p>@(Html.Raw(item.Description.Substring(0,100))) <a href="#">Continue reading...</a></p>
+                                        <p>@(Html.Raw(item.Description.Substring(0,400))) <a href="#">Continue reading...</a></p>
                                     }
                                     else
                                     {

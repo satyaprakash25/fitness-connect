@@ -36,9 +36,9 @@ namespace GL.FC.Web
         }
 
         [HttpPost]
-        public ActionResult UserLogin(int id)
+        public ActionResult UserLogin(string email)
         {
-            var user = _userProfileService.GetById(id, string.Empty);
+            var user = _userProfileService.GetUserByEmail(email);
             if (user != null)
             {
                 var userClaims = new List<Claim>()

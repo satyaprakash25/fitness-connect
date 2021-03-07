@@ -8,8 +8,8 @@
     <div class="page" style="background-image: url('/static/dist/img/bg_img.jpg'); ">
         <div class="container">
             <div class="left">
-                <div class="login">Login</div>
-                <div class="eula"><b>Fitness </b>Connect</div>
+                <div class="login"><b>Fitness </b>Connect</div>
+                <div class="eula">Login</div>
             </div>
             <div class="right">
                 <div class="center">
@@ -43,8 +43,7 @@
                     <form asp-action="UserLogin" asp-controller="UserProfile" method="post">
                         <div class="form">
                             <label for="email">Username</label>
-                            <input type="number" id="email" class="form-control" name="id">       @*This*@
-                            @*<span class="glyphicon glyphicon-envelope form-control-feedback"></span>*@
+                            <input type="email" id="email" class="form-control" name="email"> 
                             <label for="password">Password</label>
                             <input type="password" id="password">
                             <input type="submit" id="submit" value="Login">

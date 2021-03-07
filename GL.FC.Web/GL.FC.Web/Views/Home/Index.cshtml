@@ -96,9 +96,9 @@
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>@((HealthUtility.IdealWeight(currentHealthInfo.Height,currentHealthInfo.Weight,currentHealthInfo.UserProfile.Gender)).ToString("0.00"))</h3>
+                            <h3>@((HealthUtility.IdealWeight(currentHealthInfo.Height,currentHealthInfo.Weight,currentHealthInfo.UserProfile.Gender)/2.204).ToString("0.00"))</h3>
 
-                            <p>Idle Weight (lbs)</p>
+                            <p>Ideal Weight (kg)</p>
                         </div>
                         <div class="icon">
                             <i class="fa fa-trophy"></i>
