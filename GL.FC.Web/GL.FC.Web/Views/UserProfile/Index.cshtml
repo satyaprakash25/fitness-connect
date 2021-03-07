@@ -8,13 +8,14 @@
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-        <h1>
+        @*<h1>
             User Profile
         </h1>
         <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li class="active">User profile</li>
-        </ol>
+        </ol>*@
+        <partial name="Components/sliderQuote" />
     </section>
 
     <!-- Main content -->
@@ -34,12 +35,52 @@
                                 <div class="active tab-pane" id="memberinfo">
                                     <!-- Profile Image -->
                                     @{ UserHealthModel currentHealthInfo = Model.UserHealthDetails.OrderByDescending(a => a.CreationDate).Take(1).FirstOrDefault() ?? new UserHealthModel(); }
-                                    <img class="profile-user-img img-responsive img-circle" src="/@Model.ImagePath" alt="User profile picture">
+                                    @*<img class="profile-user-img img-responsive img-circle" src="/@Model.ImagePath" alt="User profile picture">*@
 
-                                    <h3 class="profile-username text-center">@Model.Name</h3>
+                                    @*<h3 class="profile-username text-center">@Model.Name</h3>*@
 
-                                    <p class="text-muted text-center"><i class="fa fa-circle text-success"></i> Member since @Model.JoiningDate.ToString("dd/MM/yyyy")</p>
-
+                                    @*<p class="text-muted text-center"><i class="fa fa-circle text-success"></i> Member since @Model.JoiningDate.ToString("dd/MM/yyyy")</p>*@
+                                    <div class="box box-widget widget-user">
+                                        <!-- Add the bg color to the header using any of the bg-* classes -->
+                                        <div class="widget-user-header bg-aqua-active">
+                                            <h3 class="widget-user-username">@Model.Name</h3>
+                                            <h5 class="widget-user-desc"><i class="fa fa-circle text-success"></i> Member since @Model.JoiningDate.ToString("dd/MM/yyyy")</h5>
+                                            @*<h5 class="widget-user-desc">Founder &amp; CEO</h5>*@
+                                        </div>
+                                        <div class="widget-user-image">
+                                            @*<img class="img-circle" src="../dist/img/user1-128x128.jpg" alt="User Avatar">*@
+                                            <img class="profile-user-img img-responsive img-circle" src="/@Model.ImagePath" alt="User profile picture">
+                                        </div>
+                                        <div class="box-footer">
+                                            <div class="row">
+                                                <div class="col-sm-4 border-right">
+                                                    <div class="description-block">
+                                                        <h5 class="description-header">184</h5>
+                                                        <span class="description-text"><a href="#">Friends</a></span>
+                                                    </div>
+                                                    <!-- /.description-block -->
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-4 border-right">
+                                                    <div class="description-block">
+                                                        <h5 class="description-header">285</h5>
+                                                        <span class="description-text"><a href="#">FOLLOWERS</a></span>
+                                                    </div>
+                                                    <!-- /.description-block -->
+                                                </div>
+                                                <!-- /.col -->
+                                                <div class="col-sm-4">
+                                                    <div class="description-block">
+                                                        <h5 class="description-header">305</h5>
+                                                        <span class="description-text"><a href="#">Following</a></span>
+                                                    </div>
+                                                    <!-- /.description-block -->
+                                                </div>
+                                                <!-- /.col -->
+                                            </div>
+                                            <!-- /.row -->
+                                        </div>
+                                    </div>
                                     <ul class="list-group list-group-unbordered">
                                         <li class="list-group-item">
                                             <b>Gender</b> <a class="pull-right">@Model.Gender</a>
@@ -84,8 +125,34 @@
                                                 <li><b>Personal Training,Camping</b></li>
                                             </ul>
                                         </li>
+                                        <li class="list-group-item">
+                                            <b>Correspond By</b>
+                                            <ul class="list-unstyled pull-right">
+                                                <li><b>Letter(Billing Address)</b></li>
+                                            </ul>
+                                        </li>
+                                        <li class="list-group-item box">
+                                            <b>Draft By</b>
+                                            <div class="box-body table-responsive no-padding box-body">
+                                                <table class="table table-hover">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="text-bold">Draft By</td>
+                                                            <td>Bank Draft</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-bold">Account Number</td>
+                                                            <td>123456789</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-bold">Aba Number</td>
+                                                            <td>121000248</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </li>
                                     </ul>
-
                                 </div>
                                 <!-- /.box-body -->
                                 <!-- /.tab-pane -->
@@ -106,13 +173,13 @@
                                         <li class="list-group-item" data-toggle="modal" data-target="#john">
                                             <b>John Nicholson</b> <a class="pull-right">Child</a>
                                         </li>
-                                    </ul>
-                                    <a href="#" class="btn btn-primary btn-block"><b>Edit Profile</b></a>
+                                    </ul>                                    
                                 </div>
                                 <!-- /.box-body -->
                             </div>
                             <!-- /.box -->
                         </div>
+                    </div>
                     </div>
                     <!-- Profile Image -->
                     <!-- /.box -->
@@ -131,22 +198,17 @@
 
                             <strong><i class="fa fa-heartbeat margin-r-5"></i> Why I want to get in shape</strong>
 
-                            <p class="text-muted">Sanjay Dutt</p>
+                            <p class="text-muted">It pays off. The sweat. The time. The tears. The devotion.</p>
 
                             <hr>
 
                             <strong><i class="fa fa-user-plus margin-r-5"></i> My Inspiration</strong>
 
-                            <p>No one</p>
-                            <hr />
-
-                            <strong><i class="fa fa-users margin-r-5"></i> Friends</strong>
-
+                            <p>Myself</p>
                         </div>
                         <!-- /.box-body -->
                     </div>
-                    <!-- /.box -->
-                </div>
+                    <!-- /.box -->                
             </div>
             <!-- /.col -->
             <div class="col-md-7">

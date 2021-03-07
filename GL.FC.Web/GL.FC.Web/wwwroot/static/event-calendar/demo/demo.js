@@ -102,6 +102,8 @@ $(document).ready(function () {
         format: "MM dd, yyyy",
         titleFormat: "MM",
         theme: 'Royal Navy',
+        eventListToggler: false,
+        eventDisplayDefault:false,
         //sidebarDisplayDefault: false,
         //sidebarToggler: false,
         calendarEvents: [
@@ -208,7 +210,7 @@ $(document).ready(function () {
     });
     var active_events = $('#demoEvoCalendar').evoCalendar('getActiveEvents');
     if (!active_events.length) {
-        $('#demoEvoCalendar').evoCalendar('toggleEventList', false);
+        //$('#demoEvoCalendar').evoCalendar('toggleEventList', false);
     }
     else {
         $.each(active_events, function (i, items) {
