@@ -5,7 +5,7 @@
     ViewData["Title"] = "Home Page";
 }
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-
+<link href="~/static/dist/css/dashboardform.css" rel="stylesheet" />
 <!-- Morris charts -->
 <link rel="stylesheet" href="~/static/plugins/morris/morris.css">
 <!-- Content Wrapper. Contains page content -->
@@ -534,7 +534,7 @@
         var healthData = [];
         @foreach (var item in Model.UserHealthDetails.Select((value, i) => new { i, value }).ToList())
             {
-                @:healthData.push({ dates: '@(item.value.CreationDate.Value.ToString("dd/MM/yyyy"))', item1: @item.value.Weight + 'Kg'})
+                @:healthData.push({ dates: '@(item.value.CreationDate.Value.ToString("yyyy-MM-dd"))', item1: @item.value.Weight + 'Kg'})
             }
         // AREA CHART
         var area = new Morris.Area({
